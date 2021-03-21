@@ -1,0 +1,23 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.Mvc
+@inject IUrlHelper UrlHelper
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<SurveyPrompt Title="How is Blazor working for you?" />
+
+<p><a href="@UrlHelper.ActionLink(controller: "Home", action: "Index")">Link</a></p>
+
+<p>Times initialized: @timesInitialized</p>
+
+@code{
+    private int timesInitialized = 0;
+
+    protected override void OnInitialized()
+    {
+        timesInitialized++;
+        base.OnInitialized();
+    }
+}
